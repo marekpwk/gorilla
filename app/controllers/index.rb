@@ -9,7 +9,7 @@ post '/' do
     flash[:error] = "Invalid email/password. Please try again!"
   else
     session[:curr] = @curr_user.id
-    redirect to("/loggedin/#{@curr_user.id}")
+    redirect to("/survey_list")
   end
 end
 
