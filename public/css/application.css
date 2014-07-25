@@ -34,3 +34,27 @@ h1{
   color: #583BB2;
   margin-left: 20px;
 }
+
+div.survey_content {
+  color: #fff;
+  width: 400px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#question_container {
+  color: #fff;
+}
+
+ul.option_list li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+#question_submit {
+  background-color: #583BB2;
+  position: relative;
+  margin-left: 40px;
+}
+
