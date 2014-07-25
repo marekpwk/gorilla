@@ -3,14 +3,24 @@ get '/'  do
 end
 
 post '/' do
-  #user authentication
-  @curr_user = User.authenticate(params[:input])
-  if @curr_user == nil
-    flash[:error] = "Invalid email/password. Please try again!"
+  data = params[:data]
+  @user = User.find_by_email(data[:email])
+  auth = @user.try(:authenticate, data[:password])
+  if auth
+    session[:current] = @user.id
+    redirect to('/survey_list')
   else
-    session[:curr] = @curr_user.id
-    redirect to("/survey_list")
+    redirect back
   end
+  #user authentication
+
+  # @curr_user = User.authenticate(params[:input])
+  # if @curr_user == nil
+  #   flash[:error] = "Invalid email/password. Please try again!"
+  # else
+  #   session[:curr] = @curr_user.id
+  #   redirect to("/survey_list")
+  # end
 end
 
 post '/logout' do

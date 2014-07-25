@@ -1,0 +1,35 @@
+html{
+background: url("http://www.gotowallpapers.com/wallpapers/allimg/c120720/1342LWY22530-150L.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 50%;
+}
+
+h1{
+  text-align: left;
+  margin-top: 50px;
+  color: orange;
+}
+.tabs{
+ text-align: left;
+ border-left: red solid 20px;
+ border-radius: 30px;
+}
+
+.tabs li{
+  text-decoration: none;
+  display: inline;
+}
+.tabs ul li a{
+  text-decoration: none;
+  color: orange;
+}
+.tabs ul li a:hover{
+  color:#583BB2;
+}
+.cover{
+  color: #583BB2;
+  margin-left: 20px;
+}
