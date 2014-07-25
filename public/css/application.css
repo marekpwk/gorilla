@@ -35,6 +35,7 @@ h1{
   margin-left: 20px;
 }
 
+
 div.survey_content {
   color: #fff;
   width: 400px;
@@ -57,4 +58,14 @@ ul.option_list li {
   position: relative;
   margin-left: 40px;
 }
+
+.create_button {
+ margin-left: 35px;
+  color: #583BB2;
+}
+.survey_name{
+  font-size: 18px;
+  margin-left: 20px;
+}
+
 
