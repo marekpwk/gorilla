@@ -1,0 +1,17 @@
+<div class="survery_list">
+  <h2>Current List of available surveys</h2>
+
+  <ol>
+    <% @surveys.each do |survey| %>
+    <li><a href="/survey/<%= survey.id%>/take_survey"><%= survey.name %></a> 
+      <% if @curr_user != nil %>
+        <a href="/survey/<%= survey.id%>/results">Results</a> 
+        <a href="/survey/<%= survey.id%>/edit">Edit</a>
+      <% end %>
+    </li>
+    <% end %>
+  </ol>
+
+
+
+</div>
