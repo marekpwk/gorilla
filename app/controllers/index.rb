@@ -49,3 +49,13 @@ get '/survey_list' do
   erb :survey_list
 end
 
+get '/create_survey' do
+ erb :create_survey
+end
+
+post '/create_survey' do
+
+end
+
+
+
