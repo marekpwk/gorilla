@@ -18,6 +18,18 @@
   <title></title>
 </head>
 <body>
+  <h1>Gorilla Survey</h1>
+  <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <% if @curr_user != nil %> <!-- make sure to put create @user helper so that user is connected to session id-->
+          <li><a href="/"><%= @curr_user.name.capitalize %></a></li>
+          <li><a href="/logout">Log out</a></li> <!-- make sure to put log out where hash is-->
+        <% else %>
+          <li><a href="/register">Register</a></li> <!-- make sure to put resister where hash is-->
+        <% end %>
+      </ul>
+    </nav>
   <%= yield %>
 </body>
 </html>
