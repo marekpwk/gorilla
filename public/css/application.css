@@ -21,6 +21,7 @@ h1{
 .tabs li{
   text-decoration: none;
   display: inline;
+  margin-right: 20px;
 }
 .tabs ul li a{
   text-decoration: none;
