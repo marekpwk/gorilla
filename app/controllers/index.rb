@@ -24,7 +24,7 @@ post '/' do
 end
 
 post '/logout' do
-  session[:curr] = nil
+  session[:current] = nil
   redirect to('/')
 end
 
@@ -34,7 +34,7 @@ end
 
 post '/register' do
   @curr_user = User.create(params[:input])
-  session[:curr] = @curr_user.id
+  session[:current] = @curr_user.id
   redirect to("/survey_list")
 end
 
@@ -42,6 +42,6 @@ end
 get '/survey_list' do
   @surveys = Survey.all
 
-  erb :all_survey_list
+  erb :survey_list
 end
 
