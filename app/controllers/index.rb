@@ -4,10 +4,11 @@ end
 
 post '/' do
   data = params[:data]
-  @user = User.find_by_email(data[:email])
-  auth = @user.try(:authenticate, data[:password])
+  user = User.find_by_email(data[:email])
+  auth = user.try(:authenticate, data[:password])
+
   if auth
-    session[:current] = @user.id
+    session[:current] = user.id
     redirect to('/survey_list')
   else
     redirect back
@@ -23,7 +24,7 @@ post '/' do
   # end
 end
 
-post '/logout' do
+get '/logout' do
   session[:current] = nil
   redirect to('/')
 end
@@ -33,15 +34,18 @@ get '/register' do
 end
 
 post '/register' do
-  @curr_user = User.create(params[:input])
-  session[:current] = @curr_user.id
-  redirect to("/survey_list")
+  user = User.create(params[:input])
+  if user.valid?
+    session[:current] = user.id
+    redirect to("/survey_list")
+  else
+    erb :register
+  end
 end
 
 
 get '/survey_list' do
   @surveys = Survey.all
-
   erb :survey_list
 end
 
