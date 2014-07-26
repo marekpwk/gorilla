@@ -12,8 +12,8 @@ get '/survey/:id/take' do
   end
 
   # get the first question and choices from the blank responses
-  @response = @completed_survey.responses.first
-  @question = @response.question
+  @survey_response = @completed_survey.responses.first
+  @question = @survey_response.question
 
   erb :take_survey, :layout => :survey_layout
 
