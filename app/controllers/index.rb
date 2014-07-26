@@ -1,5 +1,5 @@
 get '/'  do
-    erb :index
+  erb :index
 end
 
 post '/' do
@@ -50,12 +50,13 @@ get '/survey_list' do
 end
 
 get '/create_survey' do
- erb :create_survey
+  erb :create_survey
 end
 
 post '/create_survey' do
-  survey_new = Survey.create(name: params[:name], :user_id current_user.id)
-
+  survey_new = Survey.new(name: params[:name], user_id: current_user.id)
+  survey_new.save
+  redirect to ('/create_question')
 end
 
 # get '/surveytake/:id' do
@@ -86,6 +87,3 @@ end
 
 
 # end
-
-
-
