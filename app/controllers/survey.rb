@@ -1,5 +1,17 @@
+before '/survey/:id/take' do
+  if session[:current] == nil
+    redirect to('/')
+  end
+end
+
+before '/survey_results/:id' do
+  if session[:current] == nil
+    redirect to('/')
+  end
+end
+
 get '/survey/:id/take' do
-  session[:current] = 1   # be sure to get rid of this line
+  # session[:current] = 1   # be sure to get rid of this line
   # get the info for the selected survey
   @survey = Survey.find(params[:id])
   # binding.pry
@@ -14,12 +26,13 @@ get '/survey/:id/take' do
   # get the first question and choices from the blank responses
   @survey_response = @completed_survey.responses.first
   @question = @survey_response.question
+  # @question = @survey.questions.first
 
   erb :take_survey, :layout => :survey_layout
 
 end
 
-post '/survey/:id/take' do
+post '/survey/:id/take' do 
   # binding.pry
   survey_response_id = params[:survey_response_id]
   choice_id = params[:choice_id]
@@ -43,15 +56,14 @@ post '/survey/:id/take' do
     {:title => nil, :question_next_id => nil}.to_json
   end
 
+end
 
+get '/survey_results/:id' do
+  # get the survey results and call the view
+  @survey = Survey.find_by_id(params[:id])
+  # binding.pry
+  # @comp_surveys = @survey.completed_surveys
 
-
-
-  # save the change to the response
-
-  # get another response
-
-  # if none. need to tell browser that they are finished somehow
-
+  erb :survey_results
 end
 
