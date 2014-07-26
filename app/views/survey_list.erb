@@ -3,7 +3,7 @@
 
   <ol>
     <% @surveys.each do |survey| %>
-    <li><a href="/survey/<%= survey.id%>/take_survey"><%= survey.name %></a>
+    <li><a class="survey" href="/survey/<%= survey.id%>/take_survey"><%= survey.name %></a></div>
       <% if @curr_user != nil %>
         <a href="/survey/<%= survey.id%>/results">Results</a>
         <a href="/survey/<%= survey.id%>/edit">Edit</a>
