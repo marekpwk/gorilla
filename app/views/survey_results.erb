@@ -2,9 +2,10 @@
   <h1><%= @survey.name %></h1>
 
   <% @survey.questions.each do |question| %>
-      <h3><%= question.title %></h3>
-
-
-
+      <h3><%= question.title %></h3> 
+      <% question.choices.each do |choice| %>
+        <p><%= choice.option %> &nbsp; 0          
+        </p>
+      <% end %>
   <% end %>
 </div>
