@@ -54,7 +54,7 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
-  survey_new = Survey.create(name: params[:name], :user_id current_user.id)
+  survey_new = Survey.create(name: params[:name], user_id: current_user.id)
 
 end
 

@@ -24,13 +24,24 @@ post '/survey/:id/take' do
   survey_response_id = params[:survey_response_id]
   choice_id = params[:choice_id]
   completed_survey_id = params[:completed_survey_id]
+
   respon = Response.find_by_id(survey_response_id)
-  respon.update_attributes({choice_id: choice_id, completed_survey_id: completed_survey_id })
-  # binding.pry
-  option = respon.choice.option
-  title = respon.question.title
-  content_type = "json"
-  {:option => option, :title => title}.to_json
+  respon.update_attributes({choice_id: choice_id })
+
+  respon_new = Response.where( completed_survey_id: completed_survey_id, choice: nil).take
+  if respon_new != nil 
+    question_next = respon_new.question
+    title = question_next.title
+    question_next_id = question_next.id
+
+    content_type = "json"
+    # binding.pry
+    # send back the next question and choices
+    {:title => title, :question_next_id => question_next_id, :survey_response_id => respon_new.id, :choices => question_next.choices}.to_json
+  else
+    # we have run out of questions so send back a nil so that we can thank the survey taker
+    {:title => nil, :question_next_id => nil}.to_json
+  end
 
 
 
