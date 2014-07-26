@@ -53,11 +53,18 @@ get '/create_survey' do
   erb :create_survey
 end
 
-post '/create_survey' do
-  survey_new = Survey.new(name: params[:name], user_id: current_user.id)
-  survey_new.save
-  redirect to ('/create_question')
+post '/survey' do
+  @survey_new = Survey.new(name: params[:name], user_id: current_user.id)
+  @survey_new.save
+  redirect to ("/survey/#{@survey_new.id}")
 end
+
+get '/survey/:id' do
+  @survey = Survey.find(params[:id])
+  erb :survey
+end
+
+
 
 # get '/surveytake/:id' do
 #   # binding.pry

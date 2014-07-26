@@ -88,5 +88,21 @@ create_button:hover{
 .survey:hover{
   color:orange;
 }
+.survey_page{
+  color:white;
+  text-align: center;
+}
+span.removeVar:hover{
+  color: red;
+  cursor: pointer;
+   cursor: hand;
+}
+span#addVar:hover{
+  color: red;
+  cursor: pointer;
+   cursor: hand;
+}
 
-
+.sneaky_submit{
+  display:none;
+}

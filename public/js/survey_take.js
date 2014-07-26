@@ -10,7 +10,7 @@ $(document).ready(function() {
       url: "/survey/" + $("#survey_id").val() + "/take",
       type: 'POST',
       dataType: "json",
-      data: { 
+      data: {
           survey_response_id: survey_response_id,
           choice_id: choice_id,
           completed_survey_id: completed_survey_id
