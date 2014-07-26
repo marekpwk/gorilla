@@ -9,7 +9,7 @@
     <%= @question.title %>
 
     <input type="hidden" id="question_id" name="question_id" value="<%= @question.id %>">
-
+  )
     <div>
       <ul class="option_list">
         <% @question.choices.each do |choice| %>
