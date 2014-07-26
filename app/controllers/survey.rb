@@ -4,16 +4,38 @@ get '/survey/:id/take' do
   @survey = Survey.find(params[:id])
   # binding.pry
   # create a new completed survey
-  @completed_survey = CompletedSurvey.create(user_id: session[:current], survey_id: params[:id])
+#==========================working code================================
+  # @completed_survey = CompletedSurvey.create(user_id: session[:current], survey_id: params[:id])
 
   # create new blank responses
-  @survey.questions.each do |question|
+  # @survey.questions.each do |question|
+  #   Response.create(completed_survey_id: @completed_survey.id, question_id: question.id)
+  # end
+
+  # get the first question and choices from the blank responses
+  # @survey_response = @completed_survey.responses.first
+  # @question = @survey_response.question
+
+#=================================================================
+@completed_survey = CompletedSurvey.create(user_id: session[:current], survey_id: params[:id])
+
+@survey.questions.each do |question|
     Response.create(completed_survey_id: @completed_survey.id, question_id: question.id)
   end
 
-  # get the first question and choices from the blank responses
-  @survey_response = @completed_survey.responses.first
-  @question = @survey_response.question
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   erb :take_survey, :layout => :survey_layout
 

@@ -72,7 +72,7 @@ ul.option_list li {
  margin-left: 60px;
   color: #583BB2;
 }
-create_button:hover{
+.create_button:hover{
   color:orange;
 }
 .survey_name{
