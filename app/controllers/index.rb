@@ -54,6 +54,7 @@ get '/create_survey' do
 end
 
 post '/create_survey' do
+  survey_new = Survey.create(name: params[:name], :user_id current_user.id)
 
 end
 
@@ -82,7 +83,7 @@ end
 # post '/surveytake/:id' do
 #   completed_survey_id = params[:completed_survey_id]
 #   question_id = params[:question_id]
-  
+
 
 # end
 
