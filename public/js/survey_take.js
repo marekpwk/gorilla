@@ -25,21 +25,21 @@ $(document).ready(function() {
            $("#question_container").html("");
 
            if ( data.title != undefined) {
+            $("#question_container").append('<input type="hidden" id="survey_response_id" name="survey_response_id" value="' + data.survey_response_id + '">');
              $("#question_container").append(data.title);
              $("#question_container").append('<input type="hidden" id="question_id" name="question_id" value="' + data.question_next_id + '">');
+             $("#question_container").append('<div id="choice_container">');
+             $("#question_container div").append('<ul id="choice_list" class="option_list">');
 
-              for data.choices.each {
-                
+              for (i=0; i < data.choices.length; i++) {
+                $("#question_container div ul").append('<li><input type="radio" name="choice_id" value="' + data.choices[i].id + '">&nbsp;' + data.choices[i].option + '</li>');
               }
+
            }
            else {
             $("#question_container").append("<h1>Thanks for taking our survey!</h1>");
+            $("#question_submit").css("display","none");
            }
-
-           // $("#question_submit").css("display", "none")
-           // $(".survey_content").append("<h4>" + data.title + "</h4>")
-           // $(".survey_content").append("<p>" + data.option + "</p>")
-          // do something like change the page all question and choices go in question_container div
         },
         error: function(returnValue){
 

@@ -37,7 +37,7 @@ post '/survey/:id/take' do
     content_type = "json"
     # binding.pry
     # send back the next question and choices
-    {:title => title, :question_next_id => question_next_id, :choices => question_next.choices}.to_json
+    {:title => title, :question_next_id => question_next_id, :survey_response_id => respon_new.id, :choices => question_next.choices}.to_json
   else
     # we have run out of questions so send back a nil so that we can thank the survey taker
     {:title => nil, :question_next_id => nil}.to_json
