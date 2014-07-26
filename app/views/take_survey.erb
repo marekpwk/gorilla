@@ -1,12 +1,13 @@
 <div class="survey_content">
   <h2><%= @survey.name %></h2>
+
   <input type="hidden" id="survey_id" name="survey_id" value="<%= @survey.id %>">
   <input type="hidden" id="completed_survey_id" name="completed_survey_id" value="<%= @completed_survey.id %>">
   <input type="hidden" id="response_id" name="response_id" value="<%= @request.id %>">
 
   <div id="question_container">
     <%= @question.title %>
-    
+
     <input type="hidden" id="question_id" name="question_id" value="<%= @question.id %>">
 
     <div>
@@ -18,5 +19,5 @@
     </div>
   </div>
   <div>
-    <input id="question_submit" type="button" value="Submit"> 
+    <input id="question_submit" type="button" value="Submit">
 </div>
