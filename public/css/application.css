@@ -12,6 +12,15 @@ h1{
   margin-top: 50px;
   color: orange;
 }
+h2{
+  color:#583BB2;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+#create_button{
+  color: #583BB2;
+  margin-left: 90px;
+}
 .tabs{
  text-align: left;
  border-left: red solid 20px;
@@ -60,12 +69,24 @@ ul.option_list li {
 }
 
 .create_button {
- margin-left: 35px;
+ margin-left: 60px;
   color: #583BB2;
+}
+create_button:hover{
+  color:orange;
 }
 .survey_name{
   font-size: 18px;
   margin-left: 20px;
+}
+.survey{
+  color: #583BB2;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-left: 40px;
+}
+.survey:hover{
+  color:orange;
 }
 
 
