@@ -2,7 +2,7 @@
   <h2><%= @survey.name %></h2>
   <input type="hidden" id="survey_id" name="survey_id" value="<%= @survey.id %>">
   <input type="hidden" id="completed_survey_id" name="completed_survey_id" value="<%= @completed_survey.id %>">
-  <input type="hidden" id="response_id" name="response_id" value="<%= @request.id %>">
+  <input type="hidden" id="survey_response_id" name="survey_response_id" value="<%= @survey_response.id %>">
 
   <div id="question_container">
     <%= @question.title %>
