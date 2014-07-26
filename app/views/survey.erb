@@ -1,11 +1,11 @@
 <div class="survey_page">
 
-<h2>Enter your first question and answer below.</h2>
+<h3>Enter your first question and answer below.</h3>
     <div class="question_name">
-
+  <input type="hidden" id="survey_id" name="survey_id" value="<%= params[:id] %>">
     <form action="/create_question" method="POST">
       <input type="text" name="question" placeholder="Question" value="">
-      <p>In order to submit you must have at least 2 options</p>
+      <p class="options">In order to submit you must have at least 2 options</p>
          <p>
           <span id="addVar">Add answer</span>
           </p>

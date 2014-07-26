@@ -64,6 +64,17 @@ get '/survey/:id' do
   erb :survey
 end
 
+post '/survey/:id/questions' do
+  Question.create(survey_id: params[:id], title: params[:question])
+  question = Question.last
+  answer_obj = params[:answer]
+  answer_obj.each do |key, value|
+    Choice.create(question: question, option: value["value"])
+  end
+  content_type = "json"
+  {message: "Yeah, I did it mofo"}.to_json
+end
+
 
 
 # get '/surveytake/:id' do
