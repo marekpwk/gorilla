@@ -9,6 +9,7 @@ $(document).ready(function() {
     $.ajax({
       url: "/survey/" + $("#survey_id").val() + "/take",
       type: 'POST',
+      dataType: "json",
       data: { 
           survey_response_id: survey_response_id,
           choice_id: choice_id,
@@ -17,7 +18,9 @@ $(document).ready(function() {
       success: function(data){
         console.log(data)
          $("#question_container").remove();
-         $
+         $("#question_submit").css("display", "none")
+         $(".survey_content").append("<h4>" + data.title + "</h4>")
+         $(".survey_content").append("<p>" + data.option + "</p>")
         // do something like change the page all question and choices go in question_container div
       },
       error: function(returnValue){
