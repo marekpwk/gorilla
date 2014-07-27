@@ -3,7 +3,7 @@
     <div class="question_name">
     <h3>Enter your question and answers below.</h3>
   <input type="hidden" id="survey_id" name="survey_id" value="<%= params[:id] %>">
-    <form id ="question_form"action="/create_question" method="POST">
+    <form onkeypress="return event.keyCode != 13;" id ="question_form"action="/create_question" method="POST">
       <input type="text" name="question" placeholder="Question" value="">
       <p class="options">In order to submit you must have at least 2 options</p>
          <p>
