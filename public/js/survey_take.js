@@ -39,6 +39,7 @@ $(document).ready(function() {
            else {
             $("#question_container").append("<h1>Thanks for taking our survey!</h1>");
             $("#question_submit").css("display","none");
+            $("#results_button").css("display", "inline");
            }
         },
         error: function(returnValue){
