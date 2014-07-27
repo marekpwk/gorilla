@@ -59,6 +59,7 @@ post '/survey' do
   redirect to ("/survey/#{@survey_new.id}")
 end
 
+
 get '/survey/:id' do
   @survey = Survey.find(params[:id])
   erb :survey
@@ -71,8 +72,9 @@ post '/survey/:id/questions' do
   answer_obj.each do |key, value|
     Choice.create(question: question, option: value["value"])
   end
+
   content_type = "json"
-  {message: "Yeah, I did it mofo"}.to_json
+  {question: question.id, title: question.title}.to_json
 end
 
 

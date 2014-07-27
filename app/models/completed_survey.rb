@@ -1,5 +1,5 @@
 class CompletedSurvey < ActiveRecord::Base
-  belongs_to :survey
   belongs_to :user
+  belongs_to :survey
   has_many :responses
 end

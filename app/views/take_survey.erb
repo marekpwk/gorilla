@@ -1,24 +1,26 @@
 <div class="survey_content">
-  <h2><%= @survey.name %></h2>
+  <h1><%= @survey.name %></h1>
 
   <input type="hidden" id="survey_id" name="survey_id" value="<%= @survey.id %>">
   <input type="hidden" id="completed_survey_id" name="completed_survey_id" value="<%= @completed_survey.id %>">
-  <input type="hidden" id="survey_response_id" name="survey_response_id" value="<%= @survey_response.id %>">
+  
 
   <div id="question_container">
     <%= @question.title %>
 
     <input type="hidden" id="question_id" name="question_id" value="<%= @question.id %>">
-  )
-    <div>
-      <ul class="option_list">
+    <input type="hidden" id="survey_response_id" name="survey_response_id" value="<%= @survey_response.id %>">
+  
+    <div id="choice_container">
+      <ul id="choice_list" class="option_list">
         <% @question.choices.each do |choice| %>
           <li><input type="radio" name="choice_id" value="<%= choice.id %>">&nbsp;<%= choice.option %></li>
         <% end %>
       </ul>
     </div>
+
   </div>
   
-  <div>
+  <div id="survey_btns">
     <input id="question_submit" type="button" value="Submit">
 </div>
