@@ -1,5 +1,5 @@
 get '/'  do
-    erb :index
+  erb :index
 end
 
 post '/' do
@@ -50,13 +50,34 @@ get '/survey_list' do
 end
 
 get '/create_survey' do
- erb :create_survey
+  erb :create_survey
 end
 
-post '/create_survey' do
-  survey_new = Survey.create(name: params[:name], user_id: current_user.id)
-
+post '/survey' do
+  @survey_new = Survey.new(name: params[:name], user_id: current_user.id)
+  @survey_new.save
+  redirect to ("/survey/#{@survey_new.id}")
 end
+
+
+get '/survey/:id' do
+  @survey = Survey.find(params[:id])
+  erb :survey
+end
+
+post '/survey/:id/questions' do
+  Question.create(survey_id: params[:id], title: params[:question])
+  question = Question.last
+  answer_obj = params[:answer]
+  answer_obj.each do |key, value|
+    Choice.create(question: question, option: value["value"])
+  end
+
+  content_type = "json"
+  {question: question.id, title: question.title}.to_json
+end
+
+
 
 # get '/surveytake/:id' do
 #   # binding.pry
@@ -86,6 +107,3 @@ end
 
 
 # end
-
-
-
