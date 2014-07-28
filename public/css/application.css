@@ -130,3 +130,6 @@ span.removeVar:hover{
 .question_name input{
   color:black;
 }
+#results_button{
+  display: none;
+}

@@ -61,6 +61,7 @@ end
 get '/survey_results/:id' do
   # get the survey results and call the view
   @survey = Survey.find_by_id(params[:id])
+  
   # binding.pry
   # @comp_surveys = @survey.completed_surveys
 

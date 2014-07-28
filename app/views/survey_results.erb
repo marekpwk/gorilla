@@ -1,11 +1,37 @@
 <div class="survey_content">
   <h1><%= @survey.name %></h1>
 
+
+
   <% @survey.questions.each do |question| %>
       <h3><%= question.title %></h3> 
       <% question.choices.each do |choice| %>
-        <p><%= choice.option %> &nbsp; 0          
+        <p>    
+
+          <%= response = Response.where(choice_id: choice.id)
+            if response == nil
+              0
+            else
+              response.count
+            end
+           %>
+
+          people out of 
+
+           <%= total = Survey.find(@survey.id).completed_surveys
+            if total == nil
+              0
+            else
+              total.count
+            end
+           %>
+
+           people surveyed chose -->
+
+           <%= choice.option %>
+          
         </p>
       <% end %>
   <% end %>
 </div>
+
